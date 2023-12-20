@@ -1,20 +1,17 @@
 import { Metadata } from 'next';
 
-import './globals.css';
-
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
+import '@/styles/global-in-js.css';
+import '@/styles/global-in-css.css';
 
 export const metadata: Metadata = {
-  title: `TypeScript starter for Next.js`,
-  description: `TypeScript starter for Next.js that includes all you need to build amazing apps`,
+	title: `TypeScript starter for Next.js`,
+	description: `TypeScript starter for Next.js that includes all you need to build amazing apps`,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
+	return (
+		<html lang="en" suppressHydrationWarning={true}>
+			<body>{children}</body>
+		</html>
+	);
 }

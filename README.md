@@ -41,10 +41,11 @@ pnpm dev
 
 ## Technical stack
 
-1. Next.js - https://nextjs.org/
-2. Vanilla Extract CSS - https://vanilla-extract.style/
-3. Zustand - https://zustand-demo.pmnd.rs/
-4. clsx - https://www.npmjs.com/package/clsx
+1. [Next.js](https://nextjs.org/) - SSR React.js framework.
+2. [Vanilla Extract CSS](https://vanilla-extract.style/) - Lib for writing styles.
+3. [Zustand](https://zustand-demo.pmnd.rs/) - State management lib.
+4. [clsx](https://www.npmjs.com/package/clsx) - Combinator for class names.
+5. [Storybook](https://storybook.js.org/) - Framework for writing powerful docs for UI Kit.
 
 ## File structure
 
@@ -80,13 +81,13 @@ pnpm dev
 
 ### Components folder
 
-Folder `/components` is divided to few folders. Take a look at the main idea of this folders:
+Folder `/src/components` is divided to few folders. Take a look at the main idea of this folders:
 
 | Priority | Folder               | Idea                                                                                                                                                                                                        |
 | -------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1        | /components/sections | Usually each page is built from sections. So this folder contains sections for each page. SECTION - it is components taking full width of device.                                                           |
-| 2        | /components/blocks   | Blocks are reusable components, used inside in sections. Main difference between Block and Section - Block can't take full width of page.                                                                   |
-| 3        | /components/common   | This components could be used everywhere. By other words, components in this folder could be named as UI Kit of project. Any change in this folder have to be documented in `/components/pages/_/DocsPage`. |
+| 1        | /src/components/sections | Usually each page is built from sections. So this folder contains sections for each page. SECTION - it is components taking full width of device.                                                           |
+| 2        | /src/components/blocks   | Blocks are reusable components, used inside in sections. Main difference between Block and Section - Block can't take full width of page.                                                                   |
+| 3        | /src/components/common   | This components could be used everywhere. By other words, components in this folder could be named as UI Kit of project. Any change in this folder have to be documented via storybook. |
 
 ## Code style
 

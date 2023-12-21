@@ -9,11 +9,11 @@ This project is maintained by the Joy-Dev company.
 -   [File structure](#file-structure)
     -   [Components folder](#components-folder)
 -   [Code style](#code-style)
+-   [Documentation](#documentation)
 -   [Precommit / prettier](#prettier-and-pre-commit-lint-staged)
 -   [Branch naming](#branch-naming)
 -   [Commit naming](#commit-naming)
 -   [Git flow](#git-flow)
--   [Special pages](#special-pages)
 -   [Support](#support)
 
 ## Run Locally
@@ -87,11 +87,22 @@ Folder `/src/components` is divided to few folders. Take a look at the main idea
 | -------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1        | /src/components/sections | Usually each page is built from sections. So this folder contains sections for each page. SECTION - it is components taking full width of device.                                                           |
 | 2        | /src/components/blocks   | Blocks are reusable components, used inside in sections. Main difference between Block and Section - Block can't take full width of page.                                                                   |
-| 3        | /src/components/common   | This components could be used everywhere. By other words, components in this folder could be named as UI Kit of project. Any change in this folder have to be documented via storybook. |
+| 3        | /src/components/common   | This components could be used everywhere. By other words, components in this folder could be named as UI Kit of project. Any change in this folder **have to be documented via storybook**. |
 
 ## Code style
 
 -   [TSX](./README/jsx-codestyle.md)
+
+## Documentation
+
+Some of project components are covered by `storybook. To open project docs do the following:
+
+```bash
+pnpm sb:dev # Starts locally OR
+pnpm sb:build # Make static build
+```
+
+This command will open storybook on you local machine. Read more about `storybook` at [official documentation](https://storybook.js.org/docs/get-started/whats-a-story).
 
 ## Prettier and Pre-commit (lint-staged)
 
@@ -148,13 +159,6 @@ Tips:
 4. At the end of sprint we create release branch to perform regression testing on testing stage.
 5. All hot-fixed from regression testing are located on release branch.
 6. After all fixed hot-fixes release branch merge to main.
-
-## Special pages
-
-Take a look to this pages at localhost:
-
-1. http://localhost:3000/\_/docs - Docs of basic project components. Also some tips of mixin usage and accomplishments.
-2. http://localhost:3000/\_/svgs - List of all project svg images with simple search. Created to prevent SVG duplication.
 
 ## Support
 

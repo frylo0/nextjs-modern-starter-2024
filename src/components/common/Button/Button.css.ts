@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 const button = style({
 	display: 'flex',
@@ -6,6 +6,28 @@ const button = style({
 	backdropFilter: 'blur(10px)',
 });
 
+const color = styleVariants({
+	primary: {
+		background: 'blue',
+		color: 'white',
+	},
+	secondary: {
+		background: 'white',
+		color: 'blue',
+	},
+});
+
+const size = styleVariants({
+	large: {
+		fontSize: '1.25em',
+	},
+	small: {
+		fontSize: '1em',
+	},
+});
+
 export const s = {
 	button,
+	size,
+	color,
 };

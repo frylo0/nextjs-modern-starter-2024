@@ -5,6 +5,7 @@ const withVanillaExtract = createVanillaExtractPlugin();
 const nextConfig = {
 	reactStrictMode: true,
 	output: 'export',
+	trailingSlash: true,
 };
 
 module.exports = withVanillaExtract(nextConfig);

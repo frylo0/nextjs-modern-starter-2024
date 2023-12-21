@@ -1,10 +1,11 @@
-# Joy-Dev website app
+# Next.js Modern Starter 2024
 
 This project is maintained by the Joy-Dev company.
 
 ## Reference
 
 -   [Run Locally](#run-locally)
+-   [Technical stack](#technical-stack)
 -   [File structure](#file-structure)
     -   [Components folder](#components-folder)
 -   [Code style](#code-style)
@@ -37,6 +38,13 @@ pnpm i
 # Start the server in dev mode
 pnpm dev
 ```
+
+## Technical stack
+
+1. Next.js - https://nextjs.org/
+2. Vanilla Extract CSS - https://vanilla-extract.style/
+3. Zustand - https://zustand-demo.pmnd.rs/
+4. clsx - https://www.npmjs.com/package/clsx
 
 ## File structure
 

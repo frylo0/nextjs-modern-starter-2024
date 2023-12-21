@@ -2,7 +2,7 @@ import cn from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import SVG_Next from '@/assets/vector/next.svg';
+import SVG_Next from '@/assets/vector/next.svg?url';
 import SVG_Vercel from '@/assets/vector/vercel.svg';
 import { s } from './page.css';
 
@@ -21,8 +21,7 @@ export default function Page() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						By{' '}
-						<Image className={cn(s.vercelLogo)} src={SVG_Vercel} alt="Vercel Logo" width={100} height={24} priority />
+						By <SVG_Vercel className={cn(s.vercelLogo)} width={100} height={24} />
 					</Link>
 				</div>
 			</div>

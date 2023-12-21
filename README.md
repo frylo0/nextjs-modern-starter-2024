@@ -8,7 +8,6 @@ This project is maintained by the Joy-Dev company.
 -   [File structure](#file-structure)
     -   [Components folder](#components-folder)
 -   [Code style](#code-style)
--   [Deployment](#deploy)
 -   [Precommit / prettier](#prettier-and-pre-commit-lint-staged)
 -   [Branch naming](#branch-naming)
 -   [Commit naming](#commit-naming)

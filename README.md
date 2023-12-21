@@ -1,127 +1,150 @@
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/26466516/141659551-d7ba5630-7200-46fe-863b-87818dae970a.png" alt="Next.js TypeScript Starter">
-</p>
+# Joy-Dev website app
 
-<br />
+This project is maintained by the Joy-Dev company.
 
-<div align="center"><strong>Non-opinionated TypeScript starter for Next.js</strong></div>
-<div align="center">Highly scalable foundation with the best DX. All the tools you need to build your next project.</div>
+## Reference
 
-<br />
+-   [Run Locally](#run-locally)
+-   [File structure](#file-structure)
+    -   [Components folder](#components-folder)
+-   [Code style](#code-style)
+-   [Deployment](#deploy)
+-   [Precommit / prettier](#prettier-and-pre-commit-lint-staged)
+-   [Branch naming](#branch-naming)
+-   [Commit naming](#commit-naming)
+-   [Git flow](#git-flow)
+-   [Special pages](#special-pages)
+-   [Support](#support)
 
-<div align="center">
-  <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&style=flat-square&color=5e17eb&labelColor=000000" alt="PRs welcome!" />
+## Run Locally
 
-  <img alt="License" src="https://img.shields.io/github/license/jpedroschmitz/typescript-nextjs-starter?style=flat-square&color=5e17eb&labelColor=000000">
-
-  <a href="https://twitter.com/intent/follow?screen_name=jpedroschmitz">
-    <img src="https://img.shields.io/twitter/follow/jpedroschmitz?style=flat-square&color=5e17eb&labelColor=000000" alt="Follow @jpedroschmitz" />
-  </a>
-</div>
-
-<div align="center">
-  <sub>Created by <a href="https://twitter.com/jpedroschmitz">João Pedro</a> with the help of many <a href="https://github.com/jpedroschmitz/typescript-nextjs-starter/graphs/contributors">wonderful contributors</a>.</sub>
-</div>
-
-<br />
-
-## Features
-
-- ⚡️ Next.js 13 (App Router)
-- ⚛️ React 18
-- ⛑ TypeScript
-- 📏 ESLint — To find and fix problems in your code
-- 💖 Prettier — Code Formatter for consistent style
-- 🐶 Husky — For running scripts before committing
-- 🚓 Commitlint — To make sure your commit messages follow the convention
-- 🖌 Renovate — To keep your dependencies up to date
-- 🚫 lint-staged — Run ESLint and Prettier against staged Git files
-- 👷 PR Workflow — Run Type Check & Linters on Pull Requests
-- ⚙️ EditorConfig - Consistent coding styles across editors and IDEs
-- 🗂 Path Mapping — Import components or images using the `@` prefix
-
-## Quick Start
-
-The best way to start with this template is using [Create Next App](https://nextjs.org/docs/api-reference/create-next-app).
-
-```
-# yarn
-yarn create next-app -e https://github.com/jpedroschmitz/typescript-nextjs-starter
-# npm
-npx create-next-app -e https://github.com/jpedroschmitz/typescript-nextjs-starter
-# pnpm
-pnpm create next-app -e https://github.com/jpedroschmitz/typescript-nextjs-starter
-```
-
-### Development
-
-To start the project locally, run:
+Below are the instructions on how to run project locally:
 
 ```bash
+# Install pnpm - https://pnpm.io/
+npm install -g pnpm
+# Clone the project
+git clone <gitlab-project-link>
+# Go to the project directory
+cd <project-folder>
+# Install all dependencies
+pnpm i
+# Start the server in dev mode
 pnpm dev
 ```
 
-Open `http://localhost:3000` with your browser to see the result.
+## File structure
 
-## Testimonials
+<details><summary><code>Press to open</code></summary>
 
-> [**“This starter is by far the best TypeScript starter for Next.js. Feature packed but un-opinionated at the same time!”**](https://github.com/jpedroschmitz/typescript-nextjs-starter/issues/87#issue-789642190)<br>
-> — Arafat Zahan
-
-> [**“I can really recommend the Next.js Typescript Starter repo as a solid foundation for your future Next.js projects.”**](https://corfitz.medium.com/create-a-custom-create-next-project-command-2a6b35a1c8e6)<br>
-> — Corfitz
-
-> [**“Brilliant work!”**](https://github.com/jpedroschmitz/typescript-nextjs-starter/issues/87#issuecomment-769314539)<br>
-> — Soham Dasgupta
-
-## Showcase
-
-List of websites that started off with Next.js TypeScript Starter:
-
-- [hygraph.com](https://hygraph.com)
-- [rocketseat.com.br](https://www.rocketseat.com.br)
-- [unfork.vercel.app](https://unfork.vercel.app)
-- [cryptools.dev](https://cryptools.dev)
-- [Add yours](https://github.com/jpedroschmitz/typescript-nextjs-starter/edit/main/README.md)
-
-## Documentation
-
-### Requirements
-
-- Node.js >= 16
-- pnpm 8
-
-### Directory Structure
-
-- [`.github`](.github) — GitHub configuration including the CI workflow.<br>
-- [`.husky`](.husky) — Husky configuration and hooks.<br>
-- [`public`](./public) — Static assets such as robots.txt, images, and favicon.<br>
-- [`src`](./src) — Application source code, including pages, components, styles.
-
-### Scripts
-
-- `pnpm dev` — Starts the application in development mode at `http://localhost:3000`.
-- `pnpm build` — Creates an optimized production build of your application.
-- `pnpm start` — Starts the application in production mode.
-- `pnpm type-check` — Validate code using TypeScript compiler.
-- `pnpm lint` — Runs ESLint for all files in the `src` directory.
-- `pnpm format` — Runs Prettier for all files in the `src` directory.
-
-### Path Mapping
-
-TypeScript are pre-configured with custom path mappings. To import components or files, use the `@` prefix.
-
-```tsx
-import { Button } from '@/components/Button';
-
-// To import images or other files from the public folder
-import avatar from '@/public/avatar.png';
+```
+.
+├── .husky                         Contains tasks for precommit
+├── .vscode                        All required plugins are stored here as recommendations
+├── @types                         Global types
+├── src                            Folder with all sources
+│   ├── app                            Folder defining routing of app
+│   ├── assets                         Folder with assets, could be imported from code
+│   ├── components                     Check "Components folder" chapter
+│   │   ├── blocks                         Check "Components folder" chapter
+│   │   ├── common                         Check "Components folder" chapter
+│   │   └── sections                       Check "Components folder" chapter
+│   ├── stores                         Folders with all zustand stores
+│   ├── styles                         Folders with all basic vanilla-extract/css styles
+│   ├── constants                      Project constants
+├── next.config.js                 Config for NextJS
+├── next-env.d.ts                  Typing config for NextJS
+├── out                            Folder with build
+├── package.json                   Yarn package list and config
+├── public                         Static files
+│   ├── favicon.ico                    Favicon of site
+│   └── fonts                          Folder with all fonts
+└── README.md                      You are here
 ```
 
-### Switch to Yarn/npm
+</details>
+<br>
 
-This starter uses pnpm by default, but this choice is yours. If you'd like to switch to Yarn/npm, delete the `pnpm-lock.yaml` file, install the dependencies with Yarn/npm, change the CI workflow, and Husky Git hooks to use Yarn/npm commands.
+### Components folder
 
-## License
+Folder `/components` is divided to few folders. Take a look at the main idea of this folders:
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for more information.
+| Priority | Folder               | Idea                                                                                                                                                                                                        |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1        | /components/sections | Usually each page is built from sections. So this folder contains sections for each page. SECTION - it is components taking full width of device.                                                           |
+| 2        | /components/blocks   | Blocks are reusable components, used inside in sections. Main difference between Block and Section - Block can't take full width of page.                                                                   |
+| 3        | /components/common   | This components could be used everywhere. By other words, components in this folder could be named as UI Kit of project. Any change in this folder have to be documented in `/components/pages/_/DocsPage`. |
+
+## Code style
+
+-   [TSX](./README/jsx-codestyle.md)
+
+## Prettier and Pre-commit (lint-staged)
+
+When any developer finished his work, he **commits** files and `lint-staged` package runs commands before making a commit.
+
+It is run ONLY for **STAGED** files. So do not be worried to make commits.
+
+```js
+// Check TS files for no errors
+	'**/*.(ts|tsx)': () => 'pnpm tsc --noEmit',
+
+// Lint and format TS and JS files
+'**/*.(ts|tsx|js)': (filenames) => [
+    `pnpm eslint --fix ${filenames.join(' ')}`,
+    `pnpm prettier --write ${filenames.join(' ')}`,
+],
+```
+
+## Branch naming
+
+Format of branch names:
+
+> DJD-{task-number}-{short-description}
+
+Examples:
+
+-   `DJD-878-deploy-speedup` - if task exists when branch created
+-   `NOTASK-deploy-speedup` - if task do not exists when branch created
+
+## Commit naming
+
+Format of commit messages:
+
+> DJD-{task-number}: What has been done
+
+Examples:
+
+-   `DJD-878: Update ftp-smart-deploy lib to 0.1.2`
+-   `DJD-894: Added shift and debugVideoPos. Upd docs`
+-   `NOTASK: Branch logging in telegram`
+
+## Git flow
+
+We work in sprints. So git flow adjusted for sprint logic.
+
+Graph:
+![git graph](README/git-hub-release-flow.png)
+
+Tips:
+
+1. All tasks are forked from current `main`.
+2. When task ready for code review - you create MR into current `main` branch.
+3. If task do not pass tests, you simply fix bugs at same branch and merge it to `main` again.
+4. At the end of sprint we create release branch to perform regression testing on testing stage.
+5. All hot-fixed from regression testing are located on release branch.
+6. After all fixed hot-fixes release branch merge to main.
+
+## Special pages
+
+Take a look to this pages at localhost:
+
+1. http://localhost:3000/\_/docs - Docs of basic project components. Also some tips of mixin usage and accomplishments.
+2. http://localhost:3000/\_/svgs - List of all project svg images with simple search. Created to prevent SVG duplication.
+
+## Support
+
+For any support, email maintainer of the project or:
+
+-   fedor.nikonov@joy-dev.com
+

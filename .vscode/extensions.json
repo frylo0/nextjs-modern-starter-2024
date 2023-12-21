@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-rename-tag",
+    "streetsidesoftware.code-spell-checker",
+    "editorconfig.editorconfig",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "graphql.vscode-graphql",
+    "graphql.vscode-graphql-syntax",
+    "kisstkondoros.vscode-gutter-preview",
+    "wix.vscode-import-cost",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker-russian",
+    "sibiraj-s.vscode-scss-formatter",
+    "simonsiefke.svg-preview",
+    "stylelint.vscode-stylelint"
+  ]
+}

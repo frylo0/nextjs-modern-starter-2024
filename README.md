@@ -20,7 +20,13 @@ This project is maintained by the Joy-Dev company.
 
 Below are the instructions on how to run project locally:
 
+Preconditions:
+1. Install NVM ([windows](https://github.com/coreybutler/nvm-windows), [linux / macos](https://github.com/nvm-sh/nvm))
+
 ```bash
+# Switch to correct node version
+nvm install
+nvm use
 # Install pnpm - https://pnpm.io/
 npm install -g pnpm
 # Clone the project

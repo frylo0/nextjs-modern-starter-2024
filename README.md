@@ -1,6 +1,6 @@
 # Next.js Modern Starter 2024
 
-This project is maintained by the Joy-Dev company.
+This project is maintained by the @frylo-d-ts.
 
 ## Reference
 
@@ -125,24 +125,24 @@ It is run ONLY for **STAGED** files. So do not be worried to make commits.
 
 Format of branch names:
 
-> DJD-{task-number}-{short-description}
+> PROJ-{task-number}-{short-description}
 
 Examples:
 
--   `DJD-878-deploy-speedup` - if task exists when branch created
--   `NOTASK-deploy-speedup` - if task do not exists when branch created
+-   `PROJ-821-fix-bug` - if task exists when branch created
+-   `NOTASK-update-deps` - if task do not exists when branch created
 
 ## Commit naming
 
 Format of commit messages:
 
-> DJD-{task-number}: What has been done
+> PROJ-{task-number}: What has been done
 
 Examples:
 
--   `DJD-878: Update ftp-smart-deploy lib to 0.1.2`
--   `DJD-894: Added shift and debugVideoPos. Upd docs`
--   `NOTASK: Branch logging in telegram`
+-   `PROJ-872: Update mobx to 0.1.2`
+-   `PROJ-324: Added shift and debugVideoPos. Upd docs`
+-   `NOTASK: Logging into chat`
 
 ## Git flow
 
@@ -164,5 +164,5 @@ Tips:
 
 For any support, email maintainer of the project or:
 
--   fedor.nikonov@joy-dev.com
+- frylo.d.ts@gmail.com
 

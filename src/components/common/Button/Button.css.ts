@@ -4,6 +4,7 @@ const button = style({
 	display: 'flex',
 	padding: '1em',
 	backdropFilter: 'blur(10px)',
+	fontFamily: 'inherit',
 });
 
 const color = styleVariants({

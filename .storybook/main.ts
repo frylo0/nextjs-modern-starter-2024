@@ -4,15 +4,16 @@ import { VanillaExtractPlugin } from '@vanilla-extract/webpack-plugin';
 import type { StorybookConfig } from '@storybook/nextjs';
 
 type TRule = {
-	issuer: RegExp,
-	test: RegExp,
+	issuer: RegExp;
+	test: RegExp;
 	resourceQuery?: {
-		not: Array<any>,
-	},
-	exclude: RegExp,
+		not: Array<any>;
+	};
+	exclude: RegExp;
 };
 
 const config: StorybookConfig = {
+	staticDirs: ['../public'],
 	stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 	addons: [
 		'@storybook/addon-links',

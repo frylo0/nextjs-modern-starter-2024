@@ -1,75 +1,75 @@
 {
-  "name": "typescript-nextjs-starter",
-  "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
-  "version": "1.0.0",
-  "private": true,
-  "author": "João Pedro Schmitz <hey@joaopedro.dev> (@jpedroschmitz)",
-  "license": "MIT",
-  "keywords": [
-    "nextjs",
-    "starter",
-    "typescript"
-  ],
-  "scripts": {
-    "dev": "next",
-    "build": "next build && pnpm run sb:build",
-    "start": "next start",
-    "type-check": "tsc --noEmit",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "postinstall": "husky install",
-    "sb:dev": "storybook dev -p 6006",
-    "sb:build": "storybook build -o out/docs"
-  },
-  "lint-staged": {
-    "./src/**/*.{ts,js,jsx,tsx}": [
-      "eslint --ignore-path .gitignore --fix",
-      "prettier --ignore-path .gitignore --write"
-    ]
-  },
-  "browserslist": [
-    ">0.01%"
-  ],
-  "dependencies": {
-    "@vanilla-extract/css": "1.14.0",
-    "clsx": "2.0.0",
-    "next": "14.0.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "zustand": "4.4.7"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "18.4.3",
-    "@commitlint/config-conventional": "18.4.3",
-    "@ianvs/prettier-plugin-sort-imports": "4.1.1",
-    "@storybook/addon-essentials": "^7.6.6",
-    "@storybook/addon-interactions": "^7.6.6",
-    "@storybook/addon-links": "^7.6.6",
-    "@storybook/addon-onboarding": "^1.0.10",
-    "@storybook/blocks": "^7.6.6",
-    "@storybook/nextjs": "^7.6.6",
-    "@storybook/react": "^7.6.6",
-    "@storybook/test": "^7.6.6",
-    "@svgr/webpack": "8.1.0",
-    "@types/node": "20.10.4",
-    "@types/react": "18.2.45",
-    "@types/react-dom": "18.2.18",
-    "@typescript-eslint/eslint-plugin": "6.14.0",
-    "@typescript-eslint/parser": "6.14.0",
-    "@vanilla-extract/next-plugin": "2.3.2",
-    "@vanilla-extract/webpack-plugin": "2.3.1",
-    "eslint": "8.56.0",
-    "eslint-config-next": "14.0.4",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-import-resolver-typescript": "3.6.1",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-prettier": "5.0.1",
-    "eslint-plugin-storybook": "0.6.15",
-    "husky": "8.0.3",
-    "lint-staged": "15.2.0",
-    "prettier": "3.1.1",
-    "prettier-plugin-sort-json": "3.1.0",
-    "storybook": "^7.6.6",
-    "typescript": "5.3.3"
-  }
+	"name": "typescript-nextjs-starter",
+	"description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
+	"version": "1.0.0",
+	"private": true,
+	"author": "João Pedro Schmitz <hey@joaopedro.dev> (@jpedroschmitz)",
+	"license": "MIT",
+	"keywords": [
+		"nextjs",
+		"starter",
+		"typescript"
+	],
+	"scripts": {
+		"dev": "next",
+		"build": "next build && pnpm run sb:build",
+		"start": "next start",
+		"type-check": "tsc --noEmit",
+		"lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
+		"format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+		"postinstall": "husky install",
+		"sb:dev": "storybook dev -p 6006",
+		"sb:build": "storybook build -o out/docs"
+	},
+	"lint-staged": {
+		"./src/**/*.{ts,js,jsx,tsx}": [
+			"eslint --ignore-path .gitignore --fix",
+			"prettier --ignore-path .gitignore --write"
+		]
+	},
+	"browserslist": [
+		">0.01%"
+	],
+	"dependencies": {
+		"@vanilla-extract/css": "1.14.0",
+		"clsx": "2.0.0",
+		"next": "14.0.4",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"zustand": "4.4.7"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "18.4.3",
+		"@commitlint/config-conventional": "18.4.3",
+		"@ianvs/prettier-plugin-sort-imports": "4.1.1",
+		"@storybook/addon-essentials": "^7.6.7",
+		"@storybook/addon-interactions": "^7.6.7",
+		"@storybook/addon-links": "^7.6.7",
+		"@storybook/addon-onboarding": "^1.0.10",
+		"@storybook/blocks": "^7.6.7",
+		"@storybook/nextjs": "^7.6.7",
+		"@storybook/react": "^7.6.7",
+		"@storybook/test": "^7.6.7",
+		"@svgr/webpack": "8.1.0",
+		"@types/node": "20.10.4",
+		"@types/react": "18.2.45",
+		"@types/react-dom": "18.2.18",
+		"@typescript-eslint/eslint-plugin": "6.14.0",
+		"@typescript-eslint/parser": "6.14.0",
+		"@vanilla-extract/next-plugin": "2.3.2",
+		"@vanilla-extract/webpack-plugin": "2.3.1",
+		"eslint": "8.56.0",
+		"eslint-config-next": "14.0.4",
+		"eslint-config-prettier": "9.1.0",
+		"eslint-import-resolver-typescript": "3.6.1",
+		"eslint-plugin-import": "2.29.1",
+		"eslint-plugin-prettier": "5.0.1",
+		"eslint-plugin-storybook": "0.6.15",
+		"husky": "8.0.3",
+		"lint-staged": "15.2.0",
+		"prettier": "3.1.1",
+		"prettier-plugin-sort-json": "3.1.0",
+		"storybook": "^7.6.7",
+		"typescript": "5.3.3"
+	}
 }

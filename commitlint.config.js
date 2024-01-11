@@ -20,7 +20,7 @@ module.exports = {
 					const projectPrefix = RegExp.escape(value);
 
 					const rTaskNumber = String.raw`(${projectPrefix}\d+|NOTASK)`;
-					const rSentence = String.raw`\p{Lu}[\p{L}\p{Pd},'\s]+`;
+					const rSentence = String.raw`\p{Lu}[\p{N}\p{L}\p{Pd},\-()\[\]'@#$%^&*+\s]+`;
 
 					const startsFromTaskNumber = new RegExp(`^${rTaskNumber}: `, 'u');
 					const messageIsSentences = new RegExp(`^${rSentence}(\\.\\s${rSentence})*$`, 'u');

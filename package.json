@@ -12,14 +12,21 @@
 	],
 	"scripts": {
 		"dev": "next",
-		"build": "next build && pnpm run sb:build",
+		"build:dev": "pnpm env:pick --name=development && next build && pnpm run sb:build && pnpm env:reset",
+		"build:dev-debug": "pnpm env:pick --name=development && next build --debug && pnpm run sb:build && pnpm env:reset",
+		"build:prod": "pnpm env:pick --name=production && next build && pnpm run sb:build && pnpm env:reset",
+		"build:prod-debug": "pnpm env:pick --name=production && next build --debug && pnpm run sb:build && pnpm env:reset",
+		"build:stage": "pnpm env:pick --name=stage && next build && pnpm run sb:build && pnpm env:reset",
+		"build:stage-debug": "pnpm env:pick --name=stage && next build --debug && pnpm run sb:build && pnpm env:reset",
 		"start": "next start",
 		"type-check": "tsc --noEmit",
 		"lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
 		"format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
 		"postinstall": "husky install",
 		"sb:dev": "storybook dev -p 6006",
-		"sb:build": "storybook build -o out/docs"
+		"sb:build": "storybook build -o out/docs",
+		"env:pick": "node ./src/env/pick-env.mjs",
+		"env:reset": "node ./src/env/reset-env.mjs"
 	},
 	"lint-staged": {
 		"./src/**/*.{ts,js,jsx,tsx}": [

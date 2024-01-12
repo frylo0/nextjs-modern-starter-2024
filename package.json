@@ -13,22 +13,16 @@
 	"scripts": {
 		"dev": "next",
 		"start": "next start",
-
 		"build:stage": "pnpm env:pick --name=stage && next build --debug && pnpm run sb:build && pnpm env:reset",
 		"build:prod": "pnpm env:pick --name=prod && next build && pnpm run sb:build && pnpm env:reset",
-
 		"deploy:stage": "pnpm build:stage && pnpm env:deploy --origin=stage",
 		"deploy:prod": "pnpm build:prod && pnpm env:deploy --origin=production",
-
 		"type-check": "tsc --noEmit",
 		"lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
 		"format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-
 		"postinstall": "husky install",
-
 		"sb:dev": "storybook dev -p 6006",
 		"sb:build": "storybook build -o out/docs",
-
 		"env:pick": "node ./src/env/pick-env.mjs",
 		"env:reset": "node ./src/env/reset-env.mjs",
 		"env:deploy": "node ./src/env/deploy.mjs"
@@ -82,6 +76,7 @@
 		"eslint-plugin-storybook": "0.6.15",
 		"husky": "8.0.3",
 		"lint-staged": "15.2.0",
+		"node-telegram-bot-api": "0.64.0",
 		"prettier": "3.1.1",
 		"prettier-plugin-sort-json": "3.1.0",
 		"storybook": "^7.6.7",

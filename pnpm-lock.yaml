@@ -35,8 +35,8 @@ devDependencies:
     specifier: 18.4.3
     version: 18.4.3
   '@frylo/pftp':
-    specifier: 1.2.1
-    version: 1.2.1
+    specifier: 1.3.1
+    version: 1.3.1
   '@ianvs/prettier-plugin-sort-imports':
     specifier: 4.1.1
     version: 4.1.1(prettier@3.1.1)
@@ -2230,8 +2230,8 @@ packages:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
     dev: true
 
-  /@frylo/pftp@1.2.1:
-    resolution: {integrity: sha512-77fwp1eAllRdDdtMKTHceymY4RNHoFdX89bNJuxuHzyHj+zXiYj7ZAFaoqlLGS8/v6njMVowVppTC53Kok2RRQ==}
+  /@frylo/pftp@1.3.1:
+    resolution: {integrity: sha512-MYRZlR2kUgR3ETfuwD7qwtXOmKahcDLeYjpfEB5Pp8f1P2rv1O0LEipkueI78OpEbNXrei+x7vvqfpkpiQqV1A==}
     dependencies:
       chalk: 4.1.2
       cli-progress: 3.12.0

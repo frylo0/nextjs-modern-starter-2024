@@ -47,7 +47,7 @@ async function main() {
 		localFolder: path.join(__dirname, '..', '..', 'out'),
 		progress: 'bar',
 
-		includeForceRegExp: [/index\.html$/],
+		includeForceRegExp: [/index\.html$/, /iframe\.html$/, /index\.json$/, /project\.json$/, /stories\.json$/],
 	});
 
 	await telegram.message(`✅ *Деплой успешно завершен*, ${website}!` + '\n' + metaInfo);

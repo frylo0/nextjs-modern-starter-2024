@@ -1,6 +1,12 @@
+import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 import React from 'react';
-import type { Preview } from '@storybook/react';
+
 import { s } from './preview.css';
+
+import type { Preview } from '@storybook/react';
+
+import '../src/styles/global-in-css.css';
+import '../src/styles/global-in-js.css';
 
 const preview: Preview = {
 	parameters: {
@@ -9,6 +15,12 @@ const preview: Preview = {
 			matchers: {
 				color: /(background|color)$/i,
 				date: /Date$/i,
+			},
+		},
+		viewport: {
+			viewports: {
+				...INITIAL_VIEWPORTS,
+				...MINIMAL_VIEWPORTS,
 			},
 		},
 	},

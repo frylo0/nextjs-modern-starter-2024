@@ -3,6 +3,15 @@ import { Button } from './Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+/**
+ * ## Button
+ *
+ * This is example button component made to show whole power of storybook.
+ *
+ * ```js
+ * console.log('You could also paste some code using markdown + jsDoc features');
+ * ```
+ */
 const meta = {
 	title: 'Common/Button',
 	component: Button,

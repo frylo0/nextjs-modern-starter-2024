@@ -9,7 +9,7 @@ if (!RegExp.escape) {
 
 module.exports = {
 	rules: {
-		'task-numbers': [2, 'always', 'NEXT-'],
+		'task-numbers': [2, 'always', 'NEXT-'], // Replace 'NEXT-' with your Jira task prefix
 	},
 	plugins: [
 		{

@@ -2,19 +2,50 @@
 
 This project is maintained by the @frylo-d-ts.
 
-## Reference
+## Reference <!-- omit from toc -->
 
--   [Run Locally](#run-locally)
--   [Technical stack](#technical-stack)
--   [File structure](#file-structure)
-    -   [Components folder](#components-folder)
--   [Code style](#code-style)
--   [Documentation](#documentation)
--   [Precommit / prettier](#prettier-and-pre-commit-lint-staged)
--   [Branch naming](#branch-naming)
--   [Commit naming](#commit-naming)
--   [Git flow](#git-flow)
--   [Support](#support)
+- [How to use this template?](#how-to-use-this-template)
+- [Run Locally](#run-locally)
+- [Technical stack](#technical-stack)
+- [File structure](#file-structure)
+	- [Components folder](#components-folder)
+- [Code style](#code-style)
+- [Documentation](#documentation)
+- [Prettier and Pre-commit (lint-staged)](#prettier-and-pre-commit-lint-staged)
+- [Branch naming](#branch-naming)
+- [Commit naming](#commit-naming)
+- [Git flow](#git-flow)
+- [Support](#support)
+
+## How to use this template?
+
+1. README changes
+   1. Change the h1 title to the name of your project.
+   2. Change line `This project is maintained`, place there your email.
+   3. Replace all `PROJ` instances to your Jira tasks code.
+   4. Add emails in support part of readme.
+2. [`package.json`](./package.json)
+   1. Change name of the project
+   2. Change description
+   3. Change version
+   4. Change author
+   5. Change keywords or remove this prop
+3. [`commitlint.config.js`](./commitlint.config.js)
+   1. Change Jira tasks number prefix to validate commit messages correctly
+      ```js
+	  module.exports = {
+		rules: {
+			'task-numbers': [2, 'always', 'NEXT-'], // Replace 'NEXT-' with your Jira task prefix
+		},
+		plugins: [
+	  ```
+4. Env files ([`.env.development`](./.env.development), [`.env.prod`](./.env.prod), [`.env.stage`](./.env.stage))
+   1. Replace backend domain
+   2. Configure what env should be pass protected
+5. Final steps
+   1. Remove this chapter from README
+   2. Remove unnecessary pages from `./src/app` folder
+   3. Enjoy development ;)
 
 ## Run Locally
 

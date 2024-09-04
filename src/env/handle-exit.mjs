@@ -4,9 +4,9 @@ export function handleExit(telegram, website, metaInfo) {
 	async function exitHandler(options) {
 		if (options.exit) {
 			if (options.force === true) {
-				await telegram.message(`🪓 *Деплой завершен насильно*, ${website}...` + '\n' + metaInfo);
+				await telegram.message(`🪓 *Deploy finished by force*, ${website}...` + '\n' + metaInfo);
 			} else {
-				await telegram.message(`🐜 *Деплой неожиданно завершился*, ${website}...` + '\n' + metaInfo);
+				await telegram.message(`🐜 *Deploy finished unexpectedly*, ${website}...` + '\n' + metaInfo);
 			}
 		}
 	}

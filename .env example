@@ -1,0 +1,10 @@
+# Rename file to `.env` and put credentials. This env file will be merged with current env file such as `.env.development`
+
+MONGODB_PROTOCOL='mongodb'
+MONGODB_HOST='mongodb-service'
+MONGODB_PORT='27017'
+
+MONGODB_USERNAME='<your username>'
+MONGODB_PASSWORD='<your password>'
+
+MONGODB_DB_NAME='<your db name>'

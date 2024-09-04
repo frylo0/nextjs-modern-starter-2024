@@ -1,13 +1,13 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 
-const button = style({
+export const sButton = style({
 	display: 'flex',
 	padding: '1em',
 	backdropFilter: 'blur(10px)',
 	fontFamily: 'inherit',
 });
 
-const color = styleVariants({
+export const svColor = styleVariants({
 	primary: {
 		background: 'blue',
 		color: 'white',
@@ -18,7 +18,7 @@ const color = styleVariants({
 	},
 });
 
-const size = styleVariants({
+export const svSize = styleVariants({
 	large: {
 		fontSize: '1.25em',
 	},
@@ -26,9 +26,3 @@ const size = styleVariants({
 		fontSize: '1em',
 	},
 });
-
-export const s = {
-	button,
-	size,
-	color,
-};

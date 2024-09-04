@@ -1,0 +1,41 @@
+# Ignore node_modules
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Ignore logs
+logs
+*.log
+*.log.*
+
+# Ignore build output
+.next
+out
+
+# Ignore test and coverage files
+coverage
+*.test.js
+*.spec.js
+*.test.ts
+*.spec.ts
+*.test.tsx
+*.spec.tsx
+
+# Ignore various editor and system files
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+*.iml
+
+# Ignore Docker-related files if you want to exclude them
+docker/
+Dockerfile
+.dockerignore
+
+# Ignore any other files/directories that are not necessary for the build
+.git/
+README.md
+README/

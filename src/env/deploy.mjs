@@ -2,10 +2,13 @@ import { execSync } from 'child_process';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { deploy } from '@frylo/pftp';
+import { NodeSSH } from 'node-ssh';
 
 import { creds, telegramBot } from '../../.creds.mjs';
 import { handleExit } from './handle-exit.mjs';
 import { TelegramChat } from './telegram.mjs';
+
+const ssh = new NodeSSH();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -39,25 +42,68 @@ const deployer = execSync('git config user.name').toString().trim();
 const metaInfo = '\n' + `👀 _${deployer}_` + '\n' + `🌱 _${branch}_`;
 
 async function main() {
-	await telegram.message(`🔧 *Начался деплой*, ${website}!` + '\n' + metaInfo);
+	await telegram.message(`🔧 *Deploy has started*, ${website}!` + '\n' + metaInfo);
 
 	await deploy({
 		...originCreds,
 
-		localFolder: path.join(__dirname, '..', '..', 'out'),
+		localFolder: path.join(__dirname, '..', '..'),
 		progress: 'bar',
 
-		includeForceRegExp: [/index\.html$/, /iframe\.html$/, /index\.json$/, /project\.json$/, /stories\.json$/],
+		excludeRegExp: [
+			/\.git\//,
+			/node_modules\//,
+			/\.next\//,
+			/\.husky\//,
+			/\.storybook\//,
+			/\.vscode\//,
+			/\.creds\.mjs$/,
+		],
 	});
 
-	await telegram.message(`✅ *Деплой успешно завершен*, ${website}!` + '\n' + metaInfo);
+	console.log(
+		'┌───────────────────────────────────────┐\n' +
+			'│    (!) RESTARTING DOCKER CONTAINER    │\n' +
+			'└───────────────────────────────────────┘'
+	);
+
+	await ssh.connect({
+		host: originCreds.host,
+		port: originCreds.port,
+		username: originCreds.username,
+		password: originCreds.password,
+	});
+
+	await ssh.execCommand(
+		`export NVM_DIR="$HOME/.nvm" &&
+    	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+		cd ${originCreds.remoteFolder} \\
+			&& pnpm docker:prod down \\
+			&& pnpm docker:prod build \\
+			&& pnpm serve`,
+		{
+			onStdout: (buffer) => process.stdout.write(buffer.toString()),
+			onStderr: (buffer) => process.stderr.write(buffer.toString()),
+		}
+	);
+
+	ssh.dispose();
+
+	console.log(
+		'┌───────────────────────────────────────┐\n' +
+			'│          ✓  DOCKER RESTARTED          │\n' +
+			'└───────────────────────────────────────┘'
+	);
+
+	await telegram.message(`✅ *Deploy finished successfully*, ${website}!` + '\n' + metaInfo);
 }
 
 main()
 	.then(process.exit)
 	.catch((err) => {
 		console.error(err);
-		telegram.message(`⛑️ *Во время деплоя произошла ошибка*, ${website}...` + '\n' + `🔎 ${err}` + '\n' + metaInfo);
+		telegram.message(`⛑️ *Deploy error*, ${website}...` + '\n' + `🔎 ${err}` + '\n' + metaInfo);
 	});
 
 handleExit(telegram, website, metaInfo);

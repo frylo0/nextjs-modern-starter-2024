@@ -40,9 +40,14 @@ This project is maintained by the @frylo-d-ts.
 		plugins: [
 	  ```
 4. Env files ([`.env.development`](./.env.development), [`.env.prod`](./.env.prod), [`.env.stage`](./.env.stage))
-   1. Replace backend domain
+   1. Replace domain names
    2. Configure what env should be pass protected
-5. Final steps
+5. Docker config
+   1. Change `project-name` at [`package.json`](./package.json), at script with name `docker`.
+   2. Rename [`.env example`]('./.env example') file to [`.env`](./.env) and put real creds to DB inside.
+   3. Replace `projectName` instances to the name of a project at: [`dev docker-compose.yml`](./docker/development/docker-compose.yml), [`prod docker-compose.yml`](./docker/production/docker-compose.yml).
+   4. Replace `example.com` to real domain at [`nginx.conf`](./docker/production/nginx.conf).
+6. Final steps
    1. Remove this chapter from README
    2. Remove unnecessary pages from `./src/app` folder
    3. Enjoy development ;)

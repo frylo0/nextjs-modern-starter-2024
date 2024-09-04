@@ -1,8 +1,8 @@
 import { style } from '@vanilla-extract/css';
 
-import { media } from '@/styles/bundle.css';
+import { calc } from '@/styles/bundle.css';
 
-const main = style({
+export const sMain = style({
 	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'center',
@@ -10,21 +10,16 @@ const main = style({
 	gap: '1em',
 });
 
-const button = style({
+export const sButton = style({
 	'@media': {
-		[media.device.desktop]: {
+		[calc.width('=', 'desktop')]: {
 			width: '300px',
 		},
-		[media.device.tablet]: {
+		[calc.width('<=', 'tablet')]: {
 			width: '200px',
 		},
-		[media.device.phone]: {
+		[calc.width('<=', 'phone')]: {
 			width: '100px',
 		},
 	},
 });
-
-export const s = {
-	main,
-	button,
-};

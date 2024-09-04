@@ -13,7 +13,7 @@
 // Импорты разделены по типам
 
 // Сперва идут те, что реже изменяются, например подключение scss файла
-import { s } from './Some.css';
+import { sTabs, sTitle, sContents } from './Some.css';
 import cn from 'clsx';
 
 // Потом библиотеки
@@ -32,7 +32,7 @@ import { TabTitle } from '@/components/common/tabs/TabTitle/TabTitle';
 import { TabContent } from '@/components/common/tabs/TabContent/TabContent';
 import { Row } from '@/components/common/Flex/Flex';
 
-// Запрещено использовать any без веской причины
+// Запрещено использовать any без веской причины. Причину указывать в комментариях
 interface TabsProps {
 	className?: string;
 	startIndex?: number;
@@ -92,11 +92,11 @@ export const Tabs: React.FC<TabsProps> = ({
     // Например, не стоит выносить куски в переменные без веской причины
     // Всегда использовать cn
 	return (
-		<div className={cn(s.tabs, className)}>
-			<Row wrap gap className={cn(s.titles)}>
+		<div className={cn(sTabs, className)}>
+			<Row wrap gap className={cn(sTitles)}>
 				{titles}
 			</Row>
-			<div className={cn(s.contents)} ref={contentsWrapperEl}>
+			<div className={cn(sContents)} ref={contentsWrapperEl}>
 				{contents}
 			</div>
 		</div>

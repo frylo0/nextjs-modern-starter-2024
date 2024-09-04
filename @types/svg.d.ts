@@ -1,4 +1,4 @@
 declare module '*.svg?url' {
-	const src: string;
-	export default src;
+	const result: { src: string };
+	export default result;
 }

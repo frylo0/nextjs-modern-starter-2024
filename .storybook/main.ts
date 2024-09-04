@@ -13,23 +13,25 @@ type TRule = {
 };
 
 const config: StorybookConfig = {
-	staticDirs: ['../public'],
-	stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-	addons: [
-		'@storybook/addon-links',
-		'@storybook/addon-essentials',
-		'@storybook/addon-onboarding',
-		'@storybook/addon-interactions',
-	],
-	framework: {
+    staticDirs: ['../public'],
+    stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+
+    addons: [
+        '@storybook/addon-links',
+        '@storybook/addon-essentials',
+        '@storybook/addon-onboarding',
+        '@storybook/addon-interactions',
+        '@chromatic-com/storybook'
+    ],
+
+    framework: {
 		name: '@storybook/nextjs',
 		options: {},
 	},
-	docs: {
-		autodocs: true,
-	},
 
-	webpackFinal: async (config) => {
+    docs: {},
+
+    webpackFinal: async (config) => {
 		//console.log(config.module?.rules);
 
 		// Grab the existing rule that handles SVG imports
@@ -64,6 +66,10 @@ const config: StorybookConfig = {
 
 		return config;
 	},
+
+    typescript: {
+        reactDocgen: 'react-docgen-typescript'
+    }
 };
 
 export default config;

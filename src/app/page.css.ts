@@ -1,69 +1,60 @@
 import { style } from '@vanilla-extract/css';
 
-import { media } from '@/styles/bundle.css';
+import { colorMode } from '@/styles/bundle.css';
 
-const center = style({
+export const sCenter = style({
 	display: 'flex',
+	flexDirection: 'column',
 	justifyContent: 'center',
 	alignItems: 'center',
 	position: 'relative',
 	padding: '4rem 0',
-	'::after': {
-		background: 'var(--primary-glow)',
-		width: '240px',
-		height: '180px',
-		zIndex: '-1',
-		content: '',
-		left: '50%',
-		position: 'absolute',
-		filter: 'blur(45px)',
-		transform: 'translateZ(0)',
-	},
-	'::before': {
-		background: 'var(--secondary-glow)',
-		borderRadius: '50%',
-		width: '480px',
-		height: '360px',
-		marginLeft: '-400px',
-		content: '',
-		left: '50%',
-		position: 'absolute',
-		filter: 'blur(45px)',
-		transform: 'translateZ(0)',
-	},
 });
 
-const code = style({
+export const sCounter = style({
+	marginBlockStart: '2em',
+	display: 'flex',
+	flexDirection: 'row',
+	gap: '1em',
+});
+
+export const sPersons = style({
+	whiteSpace: 'pre',
+	fontFamily: 'monospace',
+});
+
+export const sCode = style({
 	fontWeight: '700',
 	fontFamily: 'var(--font-mono)',
 });
 
-const grid = style({
+export const sGrid = style({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(4,minmax(25%,auto))',
 	width: 'var(--max-width)',
 	maxWidth: '100%',
 });
 
-const logo = style({
+export const sLogo = style({
 	position: 'relative',
+	userSelect: 'none',
 
 	'@media': {
-		[media.colorMode.dark]: {
+		[colorMode.dark]: {
 			filter: 'invert(1) drop-shadow(0 0 0.3rem #ffffff70)',
 		},
 	},
 });
 
-const vercelLogo = style({
+export const sVercelLogo = style({
 	'@media': {
-		[media.colorMode.dark]: {
+		[colorMode.dark]: {
 			filter: 'invert(1)',
 		},
 	},
 });
 
-const card = style({
+export const sCard = style({
 	padding: '1rem 1.2rem',
 	borderRadius: 'var(--border-radius)',
 	background: 'rgba(var(--card-rgb),0)',
@@ -72,12 +63,12 @@ const card = style({
 	width: '300px',
 });
 
-const cardH2 = style({
+export const sCardH2 = style({
 	fontWeight: '600',
 	marginBottom: '0.7rem',
 });
 
-const cardP = style({
+export const sCardP = style({
 	margin: '0',
 	opacity: '0.6',
 	fontSize: '0.9rem',
@@ -85,7 +76,7 @@ const cardP = style({
 	maxWidth: '30ch',
 });
 
-const description = style({
+export const sDescription = style({
 	display: 'inherit',
 	justifyContent: 'inherit',
 	alignItems: 'inherit',
@@ -96,14 +87,14 @@ const description = style({
 	fontFamily: 'var(--font-mono)',
 });
 
-const descriptionA = style({
+export const sDescriptionA = style({
 	display: 'flex',
 	justifyContent: 'center',
 	alignItems: 'center',
 	gap: '0.5rem',
 });
 
-const descriptionP = style({
+export const sDescriptionP = style({
 	position: 'relative',
 	margin: '0',
 	padding: '1rem',
@@ -112,7 +103,7 @@ const descriptionP = style({
 	borderRadius: 'var(--border-radius)',
 });
 
-const main = style({
+export const sMain = style({
 	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'space-between',
@@ -122,22 +113,6 @@ const main = style({
 	color: 'white',
 });
 
-const mainA = style({
+export const sMainA = style({
 	color: 'white',
 });
-
-export const s = {
-	main,
-	description,
-	descriptionA,
-	descriptionP,
-	card,
-	cardH2,
-	cardP,
-	mainA,
-	logo,
-	grid,
-	code,
-	center,
-	vercelLogo,
-};

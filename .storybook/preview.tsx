@@ -9,8 +9,8 @@ import '../src/styles/global-in-css.css';
 import '../src/styles/global-in-js.css';
 
 const preview: Preview = {
-	parameters: {
-		actions: { argTypesRegex: '^on[A-Z].*' },
+    parameters: {
+		actions: {},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
@@ -24,13 +24,16 @@ const preview: Preview = {
 			},
 		},
 	},
-	decorators: [
+
+    decorators: [
 		(Story) => (
 			<div className={s.storybookDecorator}>
 				<Story />
 			</div>
 		),
 	],
+
+    tags: ['autodocs']
 };
 
 export default preview;

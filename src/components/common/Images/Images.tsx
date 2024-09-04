@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import SVG_Next from '@/assets/vector/next.svg?url';
 import SVG_Vercel from '@/assets/vector/vercel.svg';
-import { s } from './Images.css';
+import { sImages } from './Images.css';
 
 interface ImagesProps {
 	className?: string;
@@ -13,8 +13,8 @@ interface ImagesProps {
 
 export const Images: React.FC<ImagesProps> = ({ className, showSrcImage, showComponentImage }) => {
 	return (
-		<div className={cn(s.images, className)}>
-			{showSrcImage && <Image src={SVG_Next} alt="Next.js Logo" />}
+		<div className={cn(sImages, className)}>
+			{showSrcImage && <Image src={SVG_Next.src} alt="Next.js Logo" width={394} height={80} />}
 			{showComponentImage && <SVG_Vercel width={100} />}
 		</div>
 	);

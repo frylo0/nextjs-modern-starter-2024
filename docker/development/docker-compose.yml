@@ -1,0 +1,48 @@
+services:
+  mongodb-service:
+    image: mongo:latest
+    container_name: projectName-mongodb
+    restart: always
+    ports:
+      - '27018:${MONGODB_PORT}'
+    env_file:
+      - ./../../.env
+    environment:
+      MONGO_USERNAME: ${MONGODB_USERNAME}
+      MONGO_PASSWORD: ${MONGODB_PASSWORD}
+      MONGO_DB_NAME: ${MONGODB_DB_NAME}
+    volumes:
+      - mongodb_data:/data/db
+      - ./initdb.d:/docker-entrypoint-initdb.d
+      - ./mongod.conf:/etc/mongod.conf
+    command: mongod --config /etc/mongod.conf
+    networks:
+      - app-network
+
+  nextjs-service:
+    build:
+      context: ./../../
+      dockerfile: ./docker/development/Dockerfile.nextjs
+    container_name: projectName-nextjs
+    restart: always
+    ports:
+      - '3000:3000'
+    env_file:
+      - ./../../.env
+    environment:
+      VIPS_CONCURRENCY: 16 # Value of thread mathcing number of CPU cores
+    depends_on:
+      - mongodb-service
+    volumes:
+      - ./../..:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

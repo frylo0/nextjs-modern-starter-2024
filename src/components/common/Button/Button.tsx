@@ -1,13 +1,13 @@
 import cn from 'clsx';
 
-import { s } from './Button.css';
+import { sButton, svColor, svSize } from './Button.css';
 
 interface ButtonProps extends React.PropsWithChildren {
 	className?: string;
-	color?: keyof typeof s.color;
-	size?: keyof typeof s.size;
+	color?: keyof typeof svColor;
+	size?: keyof typeof svSize;
 }
 
 export const Button: React.FC<ButtonProps> = ({ className, children, color = 'secondary', size = 'small' }) => {
-	return <button className={cn(s.button, s.color[color], s.size[size], className)}>{children}</button>;
+	return <button className={cn(sButton, svColor[color], svSize[size], className)}>{children}</button>;
 };

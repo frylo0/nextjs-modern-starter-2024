@@ -11,21 +11,32 @@
 		"typescript"
 	],
 	"scripts": {
-		"dev": "next",
-		"start": "next start",
-		"build:stage": "pnpm env:pick --name=stage && next build --debug && pnpm run sb:build && pnpm env:reset",
-		"build:prod": "pnpm env:pick --name=prod && next build && pnpm run sb:build && pnpm env:reset",
-		"deploy:stage": "pnpm build:stage && pnpm env:deploy --origin=stage",
-		"deploy:prod": "pnpm build:prod && pnpm env:deploy --origin=production",
+		"dev": "pnpm docker:dev up",
+		"serve": "pnpm docker:prod up -d",
+
+		"deploy:stage": "pnpm env:deploy --origin=stage",
+		"deploy:prod": "pnpm env:deploy --origin=production",
+
 		"type-check": "tsc --noEmit",
 		"lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
 		"format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+
 		"postinstall": "husky install",
+
 		"sb:dev": "storybook dev -p 6006",
 		"sb:build": "storybook build -o out/docs",
+
 		"env:pick": "node ./src/env/pick-env.mjs",
 		"env:reset": "node ./src/env/reset-env.mjs",
-		"env:deploy": "node ./src/env/deploy.mjs"
+		"env:deploy": "node ./src/env/deploy.mjs",
+
+		"docker": "docker compose --env-file .env --project-name project-name",
+
+		"docker:dev": "pnpm docker --file ./docker/development/docker-compose.yml",
+		"docker:dev.reset": "pnpm docker:dev down --volumes && pnpm docker:dev build --no-cache",
+
+		"docker:prod": "pnpm docker --file ./docker/production/docker-compose.yml",
+		"docker:prod.reset": "pnpm docker:prod down --volumes && pnpm docker:prod build --no-cache"
 	},
 	"lint-staged": {
 		"./src/**/*.{ts,js,jsx,tsx}": [
@@ -40,26 +51,29 @@
 		"@vanilla-extract/css": "1.14.0",
 		"clsx": "2.0.0",
 		"js-cookie": "3.0.5",
+		"mongoose": "8.5.1",
 		"next": "14.0.4",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"reset-css": "5.0.2",
+		"usehooks-ts": "3.1.0",
 		"zustand": "4.4.7"
 	},
 	"devDependencies": {
+		"@chromatic-com/storybook": "^1",
 		"@commitlint/cli": "18.4.3",
 		"@commitlint/config-conventional": "18.4.3",
-		"@frylo/pftp": "1.3.1",
+		"@frylo/pftp": "1.5.0",
 		"@ianvs/prettier-plugin-sort-imports": "4.1.1",
-		"@storybook/addon-essentials": "^7.6.7",
-		"@storybook/addon-interactions": "^7.6.7",
-		"@storybook/addon-links": "^7.6.7",
-		"@storybook/addon-onboarding": "^1.0.10",
-		"@storybook/addon-viewport": "7.6.13",
-		"@storybook/blocks": "^7.6.7",
-		"@storybook/nextjs": "^7.6.7",
-		"@storybook/react": "^7.6.7",
-		"@storybook/test": "^7.6.7",
+		"@storybook/addon-essentials": "^8.1.11",
+		"@storybook/addon-interactions": "^8.1.11",
+		"@storybook/addon-links": "^8.1.11",
+		"@storybook/addon-onboarding": "^8.1.11",
+		"@storybook/addon-viewport": "^8.1.11",
+		"@storybook/blocks": "^8.1.11",
+		"@storybook/nextjs": "^8.1.11",
+		"@storybook/react": "^8.1.11",
+		"@storybook/test": "^8.1.11",
 		"@svgr/webpack": "8.1.0",
 		"@types/js-cookie": "3.0.6",
 		"@types/node": "20.10.4",
@@ -75,13 +89,15 @@
 		"eslint-import-resolver-typescript": "3.6.1",
 		"eslint-plugin-import": "2.29.1",
 		"eslint-plugin-prettier": "5.0.1",
-		"eslint-plugin-storybook": "0.6.15",
+		"eslint-plugin-storybook": "^0.8.0",
 		"husky": "8.0.3",
 		"lint-staged": "15.2.0",
+		"node-ssh": "13.2.0",
 		"node-telegram-bot-api": "0.64.0",
 		"prettier": "3.1.1",
 		"prettier-plugin-sort-json": "3.1.0",
-		"storybook": "^7.6.7",
+		"storybook": "^8.1.11",
 		"typescript": "5.3.3"
-	}
+	},
+	"packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
 }
